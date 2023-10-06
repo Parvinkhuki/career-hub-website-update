@@ -5,7 +5,7 @@ import { AuthContext } from './Authprovider';
 
 const Login = () => {
 
-    const {signIn}=useContext(AuthContext)
+    const {signIn, updateUser}=useContext(AuthContext)
     const [error, seterror]=useState("")
     const navigate=useNavigate()
     const location=useLocation()
@@ -33,6 +33,10 @@ const Login = () => {
      .catch(err=>{
          seterror(err.message)
      })
+
+   
+
+
      }
  
 
@@ -41,17 +45,17 @@ const Login = () => {
 
     return (
         <>
-        <div className='max-h-screen w-4/5 mt-36 m-auto  border  text-center bg-blue-100 p-32 my-10 '>
+        <div className='max-h-screen md:w-4/5 mt-36 m-auto  border  text-center bg-blue-100 md:p-32 my-10 '>
         <h1 className='text-4xl font-bold'>Sign in</h1>
            <form onSubmit={onSubmit}>
                <br />
-               <input type="email" required placeholder='Email address' name='email' className='p-2 border w-3/4 my-4' />
+               <input type="email" required placeholder='Email address' name='email' className='p-2 border md:w-3/4 my-4' />
                <br />
-               <input type="password" placeholder='password' name='password' required className='p-2 border w-3/4 my-4' />
+               <input type="password" placeholder='password' name='password' required className='p-2 border md:w-3/4 my-4' />
                <br />
                <p className='text-red-600'>{error}</p>
-               <p className='text-right w-[85%] my-4'>forget password?</p>
-               <button className='w-3/4 text-white btn bg-[darkblue]' type='submit' >sign in</button>
+               <p className='md:text-right md:w-[85%] my-4'>forget password?</p>
+               <button className='md:w-3/4 text-white btn bg-[darkblue]' type='submit' >sign in</button>
                <p className='my-8'>don't have any account? <NavLink to='/register' className='text-[darkblue] font-bold'>Register</NavLink></p>
            </form>
            <br/><hr />

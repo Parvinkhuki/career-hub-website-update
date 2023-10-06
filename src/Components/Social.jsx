@@ -24,10 +24,6 @@ const Social = () => {
         })
     }
 
-
-
-
-
     return (
         <>
         <div className="divider">continue with</div>

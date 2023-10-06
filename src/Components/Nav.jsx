@@ -41,10 +41,24 @@ const {logOut,user}=useContext(AuthContext)
         </div>
         <div className="navbar-end">
         {  user?
-        <div className=" flex-col-reverse md:flex md:flex-row justify-center items-center font-bold gap-2">
-          <p className='text-xs md:text-base font-bold'>{user.email}</p>
-          <NavLink  className="btn bg-[darkBlue] text-white" onClick={logOut}>LogOut</NavLink> 
-          </div>:
+  <div className="flex justify-center items-center gap-2">
+    <div><p className='text-xs md:text-base font-bold'>{user.displayName
+}</p>
+      </div>
+      <div className="dropdown dropdown-buttom">
+   
+   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+       <div className="w-10 rounded-full">
+         <img src={user.photoURL?user.photoURL:"https://i.ibb.co/9V4yRRD/8380015.jpg"
+} />
+       </div>  
+    </label>
+ <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+ 
+   <li> <NavLink  className="btn bg-[darkBlue] text-white" onClick={logOut}>LogOut</NavLink> </li>
+ </ul>
+</div>
+    </div>:
         <NavLink to='/login' className="btn bg-[darkBlue] text-white">Login</NavLink> 
       
         }
